@@ -1,9 +1,11 @@
 import { createStore } from "vuex"
+import getRandonInt from '../helpers/getRandomInt'
 
 export default createStore({
     state: {
         count: 1,
-        lastMutation: 'none'
+        lastMutation: 'none',
+        isLoading: false
     },
     mutations: {
         increment( state ){
@@ -15,5 +17,12 @@ export default createStore({
             state.lastMutation = 'incrementBy'
         },
 
+    },
+
+    actions:{
+        async incrementRandomInt( context ){
+            const randomInt = await getRandonInt()
+            context.commit('incrementBy', randomInt)
+        }    
     }
 })

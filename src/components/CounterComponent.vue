@@ -5,7 +5,7 @@
   <h2>computed:{{ count }}</h2>
   <button @click="increment">+1</button>
   <button @click="incrementBy">+5</button>
-  <button>random</button>
+  <button @click="incrementRandom">random</button>
   <h2>LastMutation:{{ lastMutation }}</h2>
 </template>
 
@@ -27,6 +27,9 @@ methods:{
   },
   incrementBy(){
     this.$store.commit('incrementBy', 5)
+  },
+  incrementRandom(){
+    this.$store.dispatch('incrementRandomInt')
   }
 }
 
