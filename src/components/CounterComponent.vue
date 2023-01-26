@@ -5,7 +5,7 @@
   <h2>computed:{{ count }}</h2>
   <button @click="increment">+1</button>
   <button @click="incrementBy">+5</button>
-  <button @click="randomInt">random</button>
+  <button @click="randomInt" :disabled="isLoading">random</button>
   <h2>LastMutation:{{ lastMutation }}</h2>
 </template>
 
@@ -19,7 +19,9 @@ computed: {
   },
   ...mapState({
     count: state => state.count,
-    lastMutation: state => state.lastMutation
+    lastMutation: state => state.lastMutation,
+    isLoading: state => state.isLoading,
+
   })
 },
 methods:{
@@ -34,8 +36,9 @@ methods:{
   },
   ...mapActions({
     randomInt: 'incrementRandomInt'
-  })
-}
+  }),
+  
+},
 
 }
 </script>
