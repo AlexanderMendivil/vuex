@@ -5,12 +5,13 @@
   <h2>computed:{{ count }}</h2>
   <button @click="increment">+1</button>
   <button @click="incrementBy">+5</button>
-  <button @click="incrementRandom">random</button>
+  <button @click="randomInt">random</button>
   <h2>LastMutation:{{ lastMutation }}</h2>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
+
 export default {
 computed: {
   countComputed(){
@@ -30,7 +31,10 @@ methods:{
   },
   incrementRandom(){
     this.$store.dispatch('incrementRandomInt')
-  }
+  },
+  ...mapActions({
+    randomInt: 'incrementRandomInt'
+  })
 }
 
 }
