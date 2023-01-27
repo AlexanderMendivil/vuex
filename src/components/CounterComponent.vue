@@ -7,6 +7,8 @@
   <button @click="incrementBy">+5</button>
   <button @click="randomInt" :disabled="isLoading">random</button>
   <h2>LastMutation:{{ lastMutation }}</h2>
+
+  <h2>Direct getter: {{ $store.getters.squareCount }}</h2>
 </template>
 
 <script>

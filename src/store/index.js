@@ -29,5 +29,11 @@ export default createStore({
             commit('setLoading', false)
             commit('incrementBy', randomInt)
         }    
+    },
+    getters:{
+        squareCount( state ){
+            return state.count * state.count
+
+        }
     }
 })
